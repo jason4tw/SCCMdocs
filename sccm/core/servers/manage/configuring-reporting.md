@@ -12,10 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 55ae86a7-f0ab-4c09-b4da-89cd0e7fa0e0
 caps.latest.revision: 6
-author: Dougebyms.author: dougebymanager: angrobe
+author: Dougeby
+ms.author: dougeby
+manager: angrobe
 
 ---
-# Configuring reporting in System Center Configuration Manager*Applies to: System Center Configuration Manager (Current Branch)*
+# Configuring reporting in System Center Configuration Manager
+
+*Applies to: System Center Configuration Manager (Current Branch)*
+
 Before you can create, modify, and run reports in the System Center Configuration Manager console, you must carry out a number of configuration tasks. Use the following sections in this topic to help you configure reporting in your Configuration Manager hierarchy:  
 
  Before you proceed with installing and configuring Reporting Services in your hierarchy, review the following Configuration Manager reporting topics:  
@@ -33,7 +38,7 @@ Before you can create, modify, and run reports in the System Center Configuratio
 
 #### To verify that SQL Server Reporting Services is installed and running  
 
-1.  On the desktop, click **Start**, click **All Programs**, click **Microsoft SQL Server 2008 R2**, click **Configuration Tools**, and then click **Reporting Services Configuration Manager**.  
+1.  On the desktop, click **Start**, click **All Programs**, click **Microsoft SQL Server <version>**, click **Configuration Tools**, and then click **Reporting Services Configuration Manager**.  
 
 2.  In the **Reporting Services Configuration Connection** dialog box, specify the name of the server that is hosting SQL Server Reporting Services, on the menu, select the instance of SQL Server on which you installed SQL Reporting Services, and then click **Connect**. The Reporting Services Configuration Manager opens.  
 
@@ -117,7 +122,7 @@ Before you can create, modify, and run reports in the System Center Configuratio
 
     -   **Reporting Services Point Account**: Click **Set**, and then select an account to use when SQL Server Reporting Services on the reporting services point connects to the Configuration Manager site database to retrieve the data that are displayed in a report. Select **Existing account** to specify a Windows user account that has previously been configured as a Configuration Manager account, or select **New account** to specify a Windows user account that is not currently configured as a Configuration Manager account. Configuration Manager automatically grants the specified user access to the site database. The user is displayed in the **Accounts** subfolder of the **Security** node in the **Administration** workspace with the **ConfigMgr Reporting Services Point** account name.  
 
-         The account that runs Reporting Services must belong to the domain local security group **Windows Authorization Access Group**, and have the **Read tokenGroupsGlobalAndUniversal** permission set to **Allow**.  
+         The account that runs Reporting Services must belong to the domain local security group **Windows Authorization Access Group**. Adding an account to this group grants it the **Read tokenGroupsGlobalAndUniversal** permission on all users and computers in the domain. For more information on this built-in Active Directory group and its purpose please see https://support.microsoft.com/en-us/kb/331951. Without this permission, Role Based Administration for reports will not work properly.  
 
          The specified Windows user account and password are encrypted and stored in the Reporting Services database. Reporting Services retrieves the data for reports from the site database by using this account and password.  
 
