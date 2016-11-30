@@ -78,7 +78,6 @@ An Azure management certificate is required for Configuration Manager to access 
 
     >[!NOTE]
     >If you use an internet proxy for the cloud management gateway connection point, you need to increase the number of ports on the proxy by the number of virtual machines you use, starting at port 10124.
-
     - Specify the private key (.pfx file) that you exported from the custom SSL certificate.
 
     - Specify the root certificate exported from the client certificate.
@@ -135,11 +134,11 @@ With the location of the cloud management gateway service configured on the clie
 >[!NOTE]
 > You can force the client to always use cloud management gateway regardless of whether it’s on the intranet or Internet. To do that, you set the following registry key on the client computer:\
 >
-> `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\CCM\\Security, ClientAlwaysOnInternet = 1`
+> `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\CCM\Security, ClientAlwaysOnInternet = 1`
 
 To verify that clients can contact Configuration Manager, you can run the following PowerShell command on the client computer:
 
-`gwmi -namespace root\\ccm\\locationservices -class SMS\_ActiveMPCandidate`
+`gwmi -namespace root\ccm\locationservices -class SMS_ActiveMPCandidate`
 
 This command displays the management points the client can contact including the cloud management gateway service.
 
