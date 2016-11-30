@@ -25,6 +25,8 @@ You can create a custom SSL certificate for cloud management gateway in the same
 
 -   When setting up the new certificate template, give **Read** and **Enroll** permissions to the security group that you set up for Configuration Manager servers.
 
+-   When setting up the new certificate template, ensure that the certificate key size is at least **2048 bits**.
+
 -  When requesting the custom web server certificate, provide an FQDN for the certificate's common name that ends in **cloudapp.net** for using cloud management gateway on Azure public cloud or **usgovcloudapp.net** for the Azure government cloud.
 
 ## Step 2: Export the client certificate's root
